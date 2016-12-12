@@ -1,20 +1,22 @@
 var login = require("./login");
-var register = require("./register");
-var User = require("../models/user");
+//var User = require("../models/user");
 
-module.exports = function (passport) {
+module.exports = function (passport, app) {
 	// For session management
 	passport.serializeUser(function (user, done) {
-		done(null, user.id);
+		console.log("serializeUser user=" + JSON.stringify(user));
+		//done(null, user.id);
 	});
 
     // For session management
-	passport.deserializeUser(function (id, done) {
+	passport.deserializeUser(function (object, done) {
+		console.log("deserializeUser user=" + JSON.stringify(object));
+		/*
 		User.findById(id, function (err, user) {
 			done(err, user);
 		});
+		*/
 	});
 	
-	login(passport);
-	register(passport);
+	login(passport, app);
 };

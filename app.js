@@ -21,9 +21,10 @@ var passport = require("passport");
 var expressSession = require("express-session");
 // TODO - Why Do we need this key ?
 //app.use(expressSession({secret: "MySecretKey"}));
-//app.use(passport.initialize());
-//app.use(passport.session());
-//require("./config/passport")(passport);
+// Initialize Passport and restore authentication state, if any, from the session.
+app.use(passport.initialize());
+app.use(passport.session());
+require("./config/passport")(passport, app);
 
 // Mustache Config
 var mustacheExpress = require("mustache-express");
