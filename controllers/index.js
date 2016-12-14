@@ -5,5 +5,9 @@ module.exports = function(passport) {
         console.log("Chegou na raiz!");
         res.render("home", null);
     });
+    
+    router.use("/login", require("./login")(passport));
+    router.use("/pin", require("./pin")(passport));
+    
     return router;
 }
