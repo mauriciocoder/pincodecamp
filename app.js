@@ -24,7 +24,7 @@ var Strategy = require("passport-twitter").Strategy;
 passport.use(new Strategy({
     consumerKey: process.env.CONSUMER_KEY,
     consumerSecret: process.env.CONSUMER_SECRET,
-    callbackURL: "https://fcc-fullstack-working-projects-mauriciobonetti.c9users.io/login/twitter/return"
+    callbackURL: process.env.CALLBACK_URL + "/login/twitter/return"
   },
   function(token, tokenSecret, profile, cb) {
     // In this example, the user's Twitter profile is supplied as the user
