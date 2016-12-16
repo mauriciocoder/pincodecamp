@@ -92,6 +92,14 @@
     </nav>
 </header>
 <main class="p-t-6">    
+    {{#message}}
+        <!--Message row-->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-xs-center" style="color:#CC0000">{{message}}</p>
+            </div>
+        </div>
+    {{/message}}
     <div class="grid">
         <div class="grid-sizer"></div>
         <div class="grid-item">

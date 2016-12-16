@@ -96,7 +96,15 @@
                 <h2 class="h2-responsive text-xs-center">Add</h2>
             </div>
         </div>
-        <form action="/login" method="post">
+        {{#message}}
+        <!--Message row-->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-xs-center" style="color:#CC0000">{{message}}</p>
+            </div>
+        </div>
+        {{/message}}
+        <form action="/pin/add" method="post">
         <!--Username row-->
         <div class="row">
             <div class="col-md-4"></div>
@@ -104,7 +112,7 @@
                 <!--Username -->
                 <div class="md-form">
                     <i class="fa fa-desktop prefix"></i>
-                    <input type="text" name="username" class="form-control">
+                    <input type="text" name="url" class="form-control">
                     <label for="form2">Image url</label>
                 </div>
             </div>
@@ -117,7 +125,7 @@
                 <!--Password -->
                 <div class="md-form">
                     <i class="fa fa-commenting prefix"></i>
-                    <input type="password" name="password" class="form-control">
+                    <input type="text" name="description" class="form-control">
                     <label for="form2">Image Description</label>
                 </div>
             </div>
