@@ -14,15 +14,13 @@ module.exports = function(passport) {
     });
     
     /* Handle yours pin GET */
-    /*
     router.get("/yours", function(req, res) {
         if (!req.user) {
             return res.redirect("/");
         }
-        var resContent = { message: req.flash("message")};
-        res.redirect("/");
+        Pin.find({ "owner": req.user._json.id }, handleYourPinsView.bind(null, req, res));
     });
-    */
+    
     
     /* Handle add pin POST */
     router.post("/add", function(req, res) {
@@ -37,8 +35,10 @@ module.exports = function(passport) {
             return res.redirect("/pin/add");
         }
         var owner = req.user._json.id;
+        var ownerImage = req.user._json.profile_image_url_https;
         var pin = new Pin();
         pin.owner = owner;
+        pin.ownerImage = ownerImage;
         pin.url = url;
         pin.description = description;
         pin.save(function(err) {
@@ -59,4 +59,9 @@ function validateInput(url, description) {
     if (!URL_REGEX.test(url)) {
         return "Invalid Url";
     }
+}
+
+function handleYourPinsView(req, res, err, pins) {
+    req.flash("pins", pins);
+    return res.redirect("/");
 }

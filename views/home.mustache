@@ -65,7 +65,7 @@
                 <!--Links-->
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/yourbooks">My Pins</a>
+                        <a class="nav-link" href="/pin/yours">My Pins</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pin/add">Add</a>
@@ -102,246 +102,36 @@
     {{/message}}
     <div class="grid">
         <div class="grid-sizer"></div>
+        {{#pins}}
         <div class="grid-item">
             <!--Book-->
             <div class="card card-block">
                 <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
+                <img class="grid-image" src="{{url}}" onerror="this.onerror=null;this.src='https://avatars0.githubusercontent.com/u/9892522?v=3&s=200';" />
                 <!--Book content-->
                 <div class="card-block">
                     <!--Text-->
                     <p class="card-text">{{description}}</p>
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>
+                            <img src="{{ownerImage}}"/>
                         </div>
                         <div class="col-md-8">
                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>
                         </div>
                     </div>
+                    {{#enableDelete}}
                     <div class="row">
                         <div class="col-md-12 text-xs-center">
                             <button class="btn btn-danger btn-sm">Delete</button>
                         </div>
                     </div>
+                    {{/enableDelete}}
                 </div>
             </div>
         </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://images6.fanpop.com/image/photos/33600000/Funny-lolcats-lol-cats-33632373-275-183.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>
-                        </div>
-                        <div class="col-md-7">
-                            <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://media.mnn.com/assets/images/2012/11/pw_1.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://lolcat.motifake.com/image/demotivational-poster/1008/yes-lolcats-fail-demotivational-poster-1280943063.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://images2.fanpop.com/image/photos/10600000/lolcats-lol-cats-10678507-450-427.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://images2.fanpop.com/image/photos/13300000/lol-dogs-dogs-13346086-500-375.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="https://s-media-cache-ak0.pinimg.com/736x/57/a9/b7/57a9b7f79ac6485132d6e0e061c80c3c.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://obeythekitty.com/wp-content/uploads/2015/01/lolcat_airplane.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://media.mnn.com/assets/images/2012/11/pw_1.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://lolcat.motifake.com/image/demotivational-poster/1008/yes-lolcats-fail-demotivational-poster-1280943063.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <!--Book-->
-            <div class="card card-block">
-                <!--Book image-->
-                <img class="grid-image" src="http://images2.fanpop.com/image/photos/10600000/lolcats-lol-cats-10678507-450-427.jpg" alt="Book">
-                <!--Book content-->
-                <div class="card-block">
-                    <!--Text-->
-                    <p class="card-text">{{description}}</p>
-                    <div class="row">                         <div class="col-md-5">                             <img src="http://www.edgemagazine.org/wp-content/uploads/2015/10/arnold-schwarzenegger.jpg"/>                         </div>                         <div class="col-md-7">                             <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>                         </div>                     </div>
-                </div>
-            </div>
-        </div>
+        {{/pins}}
+    </div>
 </main>
 <!--Footer-->
 <footer class="page-footer green text-xs-center">

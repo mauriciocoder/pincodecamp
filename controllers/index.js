@@ -1,11 +1,14 @@
 var express = require("express");
 var router = express.Router();
+var Pin = require("../models/pin");
 module.exports = function(passport) {
     router.get("/", function(req, res) {
-        var resContent = { user: req.user };
-        resContent.message = req.flash("message");
-        //console.log("resContent = " + JSON.stringify(resContent));
-        res.render("home", resContent);
+        var pins = req.flash("pins");
+        if (pins.length > 0) {
+            handlePinView(true, req, res, null, pins);
+        } else {
+            Pin.find({}, handlePinView.bind(null, null, req, res));
+        }
     });
     
     /* Handle Logout */
@@ -18,4 +21,11 @@ module.exports = function(passport) {
     router.use("/pin", require("./pin")(passport));
     
     return router;
+}
+
+function handlePinView(enableDelete, req, res, err, pins) {
+    var resContent = { user: req.user, enableDelete: enableDelete };
+    resContent.pins = pins;
+    resContent.message = req.flash("message");
+    res.render("home", resContent);
 }
