@@ -113,17 +113,21 @@
                     <!--Text-->
                     <p class="card-text">{{description}}</p>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <img src="{{ownerImage}}"/>
                         </div>
-                        <div class="col-md-8">
-                            <i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>
+                        <div class="col-md-7">
+                            <!--<i style="display:inline" class="fa fa-hand-peace-o" aria-hidden="true"></i>&nbsp;<span>4</span>-->
+                            <!-- LikeBtn.com BEGIN -->
+                                <span class="likebtn-wrapper" data-theme="greenred" data-identifier="pin_{{_id}}" data-show_like_label="false" data-dislike_enabled="false"></span>
+                                <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                            <!-- LikeBtn.com END -->
                         </div>
                     </div>
                     {{#enableDelete}}
                     <div class="row">
-                        <div class="col-md-12 text-xs-center">
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                        <div class="col-md-12">
+                            <form action="/pin/delete/{{_id}}" method="GET"><button class="btn btn-danger btn-sm">Delete</button></form>
                         </div>
                     </div>
                     {{/enableDelete}}

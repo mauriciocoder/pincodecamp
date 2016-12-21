@@ -47,6 +47,24 @@ module.exports = function(passport) {
         });
     });
     
+    /* Handle delete pin */
+    router.get("/delete/:ID", function(req, res) {
+        if (!req.user) {
+            return res.redirect("/");
+        }
+        var pinId = req.params.ID;
+        var userId = req.user._json.id;
+         Pin.remove({
+            "$and": [
+                {"_id" : pinId},
+                {"owner" : userId}
+            ]
+         }, function(err) {
+            req.flash("message", "Pin removed with success!");
+            return res.redirect("/pin/yours");
+         });
+    });
+    
     return router;
 };
 
