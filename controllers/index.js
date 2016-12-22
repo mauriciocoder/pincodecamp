@@ -5,9 +5,9 @@ module.exports = function(passport) {
     router.get("/", function(req, res) {
         var pins = req.flash("pins");
         if (pins.length > 0) {
-            handlePinView(true, req, res, null, pins);
+            handlePinView(req, res, null, pins);
         } else {
-            Pin.find({}, handlePinView.bind(null, null, req, res));
+            Pin.find({}, handlePinView.bind(null, req, res));
         }
     });
     
@@ -23,7 +23,8 @@ module.exports = function(passport) {
     return router;
 }
 
-function handlePinView(enableDelete, req, res, err, pins) {
+function handlePinView(req, res, err, pins) {
+    var enableDelete = req.flash("enableDelete");
     var resContent = { user: req.user, enableDelete: enableDelete };
     resContent.pins = pins;
     resContent.message = req.flash("message");

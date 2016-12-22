@@ -1,6 +1,5 @@
 var express = require("express");
 var router = express.Router();
-var express = require("express");
 var Pin = require("../models/pin");
 
 module.exports = function(passport) {
@@ -13,14 +12,19 @@ module.exports = function(passport) {
         res.render("add", resContent);
     });
     
-    /* Handle yours pin GET */
-    router.get("/yours", function(req, res) {
+    /* Handle mypins pin GET */
+    router.get("/mypins", function(req, res) {
         if (!req.user) {
             return res.redirect("/");
         }
-        Pin.find({ "owner": req.user._json.id }, handleYourPinsView.bind(null, req, res));
+        Pin.find({ "owner": req.user._json.id }, handlePinsView.bind(null, req, res, true));
     });
     
+    /* Handle user pin GET */
+    router.get("/user/:OWNER_ID", function(req, res) {
+        var ownerId = req.params.OWNER_ID;
+        Pin.find({ "owner": ownerId }, handlePinsView.bind(null, req, res, false));
+    });
     
     /* Handle add pin POST */
     router.post("/add", function(req, res) {
@@ -61,7 +65,7 @@ module.exports = function(passport) {
             ]
          }, function(err) {
             req.flash("message", "Pin removed with success!");
-            return res.redirect("/pin/yours");
+            return res.redirect("/pin/mypins");
          });
     });
     
@@ -79,7 +83,8 @@ function validateInput(url, description) {
     }
 }
 
-function handleYourPinsView(req, res, err, pins) {
+function handlePinsView(req, res, enableDelete, err, pins) {
     req.flash("pins", pins);
+    req.flash("enableDelete", enableDelete);
     return res.redirect("/");
 }

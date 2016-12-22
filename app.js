@@ -9,9 +9,6 @@ app.use(require("cookie-parser")());
 // Configuring passport
 var passport = require("passport");
 
-////////////////
-
-//var User = require("../models/user");
 var Strategy = require("passport-twitter").Strategy;
 
 // Configure the Twitter strategy for use by Passport.
@@ -35,8 +32,6 @@ passport.use(new Strategy({
     return cb(null, profile);
   }));
   
-////////////////
-
 app.use(require("express-session")({ secret: "MySecretKey", resave: true, saveUninitialized: true }));
 // Initialize Passport and restore authentication state, if any, from the session.
 app.use(passport.initialize());
@@ -60,7 +55,6 @@ app.set("view engine", "mustache");
 app.set("views", __dirname + "/views");
 
 app.use(express.static("public"));
-//app.use(require('./middlewares/users'))
 app.use(require("./controllers")(passport));
 
 var port = process.env.PORT || 8080;
